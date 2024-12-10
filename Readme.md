@@ -1,2 +1,2 @@
-# CNN Image Classifier Project
+CNN Image Classifier Project
 
