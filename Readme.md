@@ -109,6 +109,32 @@ Configuration files are crucial because they:
 
 ---
 
+<div style="text-align: center; font-family: Arial, sans-serif;">
+    <h3>Project Workflow Connection</h3>
+    <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+        <div style="border: 2px solid #4CAF50; border-radius: 5px; padding: 10px; width: 120px; text-align: center;">
+            <strong>Stage 01</strong><br>Data Ingestion
+        </div>
+        <span style="font-size: 24px; color: #999;">&rarr;</span>
+        <div style="border: 2px solid #4CAF50; border-radius: 5px; padding: 10px; width: 120px; text-align: center;">
+            <strong>Utils</strong><br>Helper Functions
+        </div>
+        <span style="font-size: 24px; color: #999;">&rarr;</span>
+        <div style="border: 2px solid #4CAF50; border-radius: 5px; padding: 10px; width: 120px; text-align: center;">
+            <strong>Config</strong><br>Configuration Manager
+        </div>
+        <span style="font-size: 24px; color: #999;">&rarr;</span>
+        <div style="border: 2px solid #4CAF50; border-radius: 5px; padding: 10px; width: 120px; text-align: center;">
+            <strong>YAML</strong><br>Config Files
+        </div>
+        <span style="font-size: 24px; color: #999;">&rarr;</span>
+        <div style="border: 2px solid #4CAF50; border-radius: 5px; padding: 10px; width: 120px; text-align: center;">
+            <strong>Pipeline</strong><br>Files Association
+        </div>
+    </div>
+    <p style="margin-top: 20px;">This diagram shows how Stage 01 (Data Ingestion) connects to other components like <em>Utils</em>, <em>Config</em>, and <em>YAML</em> to form a seamless workflow.</p>
+</div>
 
+---
 
 
