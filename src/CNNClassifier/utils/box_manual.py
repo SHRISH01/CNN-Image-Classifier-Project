@@ -1,57 +1,60 @@
 class Box:
     def __init__(self, dictionary):
         """
-        Custom Box implementation that allows dot notation access to dictionary items
-        
-        Args:
-            dictionary (dict): Input dictionary to convert to a Box object
+        Initializes the Box object, which dynamically converts a dictionary
+        into an object-like structure.
+        Recursively processes nested dictionaries into Box objects.
+
+        :param dictionary: A dictionary to convert to a Box object
         """
         for key, value in dictionary.items():
             if isinstance(value, dict):
-                # Recursively convert nested dictionaries
-                setattr(self, key, Box(value))
+                setattr(self, key, Box(value))  # Recursively create Box for nested dictionaries
             else:
-                setattr(self, key, value)
-    
+                setattr(self, key, value)  # Set simple values as attributes
+
     def __getattr__(self, key):
         """
-        Fallback method to handle attribute access
-        
-        Args:
-            key (str): Attribute name to access
-        
-        Raises:
-            AttributeError: If attribute is not found
+        This method is called when an attribute is accessed that doesn't exist.
+        Instead of calling get() again, we return None (or a default value).
+
+        :param key: The attribute name being accessed
+        :return: None (or default value) if the attribute is missing
         """
-        raise AttributeError(f"'{self.__class__.__name__}' object has no attribute '{key}'")
+        return None  # Return None if the attribute is not found
     
     def get(self, key, default=None):
         """
-        Safely get an attribute with an optional default value
-        
-        Args:
-            key (str): Attribute name to access
-            default (Any, optional): Default value if attribute is not found
-        
-        Returns:
-            Value of the attribute or default
+        This method attempts to retrieve an attribute. If it doesn't exist,
+        it returns a default value instead of raising an error.
+
+        :param key: The attribute to retrieve
+        :param default: The default value to return if the attribute doesn't exist
+        :return: The attribute value or the default value
         """
-        try:
-            return getattr(self, key)
-        except AttributeError:
-            return default
-    
+        if hasattr(self, key):
+            return getattr(self, key)  # Return the value of the attribute if it exists
+        else:
+            return default  # Return the default if the attribute does not exist
+
     def to_dict(self):
         """
-        Convert Box object back to a dictionary
+        Converts the Box object back into a dictionary, recursively handling nested Box objects.
         
-        Returns:
-            dict: Dictionary representation of the Box object
+        :return: A dictionary representation of the Box object
         """
         result = {}
         for key, value in self.__dict__.items():
             if isinstance(value, Box):
-                result[key] = value.to_dict()
+                result[key] = value.to_dict()  # Recursively convert nested Box objects to dicts
             else:
-                result[key] = value
+                result[key] = value  # Copy the value directly for non-Box attributes
         return result
+    def get_prepare_base_model_config(self):
+        # Ensure 'prepare_base_model' is available in the config
+        prepare_base_model_config = self.config.get('prepare_base_model', None)
+        
+        if prepare_base_model_config is None:
+            raise ValueError("Configuration for 'prepare_base_model' is missing.")
+        
+        return prepare_base_model_config

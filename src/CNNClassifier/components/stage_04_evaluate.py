@@ -1,7 +1,10 @@
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../..")))
 import tensorflow as tf
 from pathlib import Path
-from CNNClassifier.entity import EvaluationConfig
-from CNNClassifier.utils.utils import save_json
+from src.CNNClassifier.entity import EvaluationConfig
+from src.CNNClassifier.utils.utils import save_json
 from urllib.parse import urlparse
 
 class Evaluation:
