@@ -14,15 +14,17 @@ class DataIngestion:
         self.config=config
 
     def download_file(self):
-        if not os.path.exists(self.config.local_data_file):
-            logger.info("trying to download file")
-            request.urlretrieve(
-                url=self.config.Source_URL,
-                filename=self.config.local_data_file
-            )
+        print(f"Debugging: source_url = {self.config.source_url}")
+        print(f"Debugging: local_data_file = {self.config.local_data_file}")
+        
+        if not self.config.source_url or not self.config.source_url.startswith(("http://", "https://")):
+            raise ValueError("Invalid or missing source URL.")
+        
+        request.urlretrieve(
+            url=self.config.source_url,
+            filename=self.config.local_data_file
+        )
             
-        else:
-            logger.info("file alreasdy exists")
 
     def get_updated_list_of_files(self,list_of_files):
         return [f for f in list_of_files if f.endswith(".jpg")]

@@ -8,13 +8,13 @@ from typing import Any
 import joblib
 from pathlib import Path
 from ensure import ensure_annotations
-from types import SimpleNamespace
+from src.CNNClassifier.utils.box_manual import Box
 
 @ensure_annotations
-def read_yaml(path_to_yaml: Path) -> SimpleNamespace:
+def read_yaml(path_to_yaml: Path) -> Box:
     with open(path_to_yaml) as yaml_file:
         content = yaml.safe_load(yaml_file)
-        return SimpleNamespace(**content)
+        return Box(content)
 
 @ensure_annotations
 def save_json():
