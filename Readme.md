@@ -109,4 +109,74 @@ Configuration files are crucial because they:
 
 ---
 
+### Visual Workflow Connection
+
+Here is the workflow of how different components interact:
+
+```mermaid
+graph LR
+    Stage01[Stage 01: Data Ingestion] --> Utils[Utils: Helper Functions]
+    Utils --> Config[Config: Configuration Manager]
+    Config --> YAML[YAML: Config Files]
+```
+
+![Workflow Diagram](screenshots/ss1.jpeg)
+
+---
+
+### Base Model Creation
+
+- The base model is built using **VGG16**, a pre-trained convolutional neural network widely used for image classification tasks.
+- **Key Features**:
+  - Transfer learning from ImageNet weights.
+  - Customization of the fully connected layers for specific classification tasks.
+
+---
+
+### Training
+
+- The training process involves fine-tuning the VGG16 model on a custom dataset.
+- Techniques Used:
+  - Data augmentation to improve generalization.
+  - Adaptive optimizers (e.g., Adam) for effective convergence.
+  - Early stopping to prevent overfitting.
+
+---
+
+### Validation of Model
+
+- The validation phase evaluates the model's performance on unseen data.
+- Metrics Used:
+  - Accuracy
+  - Precision, Recall, F1-Score
+  - Loss curves
+
+---
+
+### Docker File Creation
+
+- A **Dockerfile** is created to containerize the project, ensuring consistency across different environments.
+- **Key Components**:
+  - Base image with Python and required dependencies.
+  - Copying project files into the container.
+  - Setting up the entry point for the application.
+
+---
+
+### Usage of Streamlit
+
+- **Streamlit** is used to create a user-friendly web interface for the model.
+- Features:
+  - Upload images for prediction.
+  - Display results and metrics interactively.
+- **Why Streamlit?**
+  - Quick and simple deployment.
+  - Interactive visualization capabilities.
+
+---
+
+Feel free to contribute to the project or raise issues for any bugs or suggestions!
+
+
+
 
