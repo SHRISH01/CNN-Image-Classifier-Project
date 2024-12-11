@@ -1,19 +1,20 @@
+import sys
 import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../..")))
 import yaml
-from CNNClassifier import logger
+from src.CNNClassifier import logger
 import json
 from typing import Any
 import joblib
 from pathlib import Path
 from ensure import ensure_annotations
-from box.excetions import BoxValueError
-from box import ConfigBox
+from types import SimpleNamespace
 
 @ensure_annotations
-def read_yaml(path_to_yaml:Path)-> ConfigBox:
+def read_yaml(path_to_yaml: Path) -> SimpleNamespace:
     with open(path_to_yaml) as yaml_file:
-        content=yaml.safe_load(yaml_file)
-        return ConfigBox(content)
+        content = yaml.safe_load(yaml_file)
+        return SimpleNamespace(**content)
 
 @ensure_annotations
 def save_json():

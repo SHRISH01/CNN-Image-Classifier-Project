@@ -1,11 +1,16 @@
-from CNNClassifier.utils.utils import read_yaml,create_directory
-from CNNClassifier.entity.config_entity import DataIngestionConfig
-from CNNClassifier.entity.config_entity import PrepareBaseModelConfig
-from CNNClassifier.entity.config_entity import TrainingConfig
-from CNNClassifier.entity.config_entity import EvaluationConfig
-from CNNClassifier.constants import CONFIG_FILE_PATH, PARAMS_FILE_PATH
-from pathlib import Path
+import sys
 import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../..")))
+from src.CNNClassifier.utils.utils import read_yaml,create_directory
+from src.CNNClassifier.entity.config_entity import DataIngestionConfig
+from src.CNNClassifier import logger
+'''
+from src.CNNClassifier.entity.config_entity import PrepareBaseModelConfig
+from src.CNNClassifier.entity.config_entity import TrainingConfig
+from src.CNNClassifier.entity.config_entity import EvaluationConfig
+'''
+from src.CNNClassifier.constants import CONFIG_FILE_PATH, PARAMS_FILE_PATH
+from pathlib import Path
 
 class ConfigurationManager:
     def __init__(

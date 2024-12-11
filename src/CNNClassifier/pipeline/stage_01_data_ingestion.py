@@ -1,6 +1,9 @@
-from CNNClassifier.components.stage_01_data_ingestion import DataIngestion
-from CNNClassifier.config.configuration import ConfigurationManager
-from CNNClassifier import logger
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../..")))
+from src.CNNClassifier.components.stage_01_data_ingestion import DataIngestion
+from src.CNNClassifier.config.configuration import ConfigurationManager
+from src.CNNClassifier import logger
 
 
 
