@@ -121,6 +121,7 @@ graph LR
     Utils --> Config[Config: Configuration Manager]
     Config --> YAML[YAML: Config Files]
 ```
+---
 
 ![Workflow Diagram](screenshots/ss1.jpeg)
 
