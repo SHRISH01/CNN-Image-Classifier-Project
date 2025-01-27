@@ -7,7 +7,7 @@
 This project is built to learn and implement an end-to-end deep learning pipeline for image classification. It covers everything from data ingestion to model prediction and deployment, ensuring a holistic understanding of how real-world deep learning projects are structured and executed.
 
 ---
-
+ 
 ## **Key Features**
 - **Modular Structure**: The project follows a modular design for reusability and scalability.
 - **Configuration Management**: Uses configuration files to manage settings and parameters for different stages.
