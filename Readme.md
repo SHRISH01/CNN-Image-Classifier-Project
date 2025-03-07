@@ -1,6 +1,6 @@
 ---
 
-# **CNN Image Classifier Project (End to End Implemetation)**       
+# **CNN Image Classifier Project (End to End Implemetation)**        
 --- 
 
 ## **Overview**
